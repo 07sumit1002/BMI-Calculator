@@ -5,15 +5,14 @@ root.geometry("130x150")
 root.title("BMI Calculator")
 weight_label = tk.Label(root, text="Weight (kg)")
 weight_entry = tk.Entry(root)
-height_label = tk.Label(root, text="Height (cm)")
-height_entry = tk.Entry(root)
+ht_label = tk.Label(root, text="Height (cm)")
+ht_entry = tk.Entry(root)
 def calculate_bmi():
-    # Get weight and height from entries
+    # Get weight and ht from entries
     weight = float(weight_entry.get())
-    height = float(height_entry.get())
+    ht = float(ht_entry.get())
     # Calculate BMI
-    bmi = weight / (height / 100) ** 2
-    # Display result 
+    bmi = weight / (ht / 100)**2
     if 0<bmi<=18.5:
         result_text.set(f"Your BMI is {bmi:.1f}\n Underweight")
         print()
@@ -34,8 +33,8 @@ result_label.bind("<Enter>",lambda event: result_label.config(fg='blue'))
 result_label.bind("<Leave>",lambda event: result_label.config(fg='black'))
 weight_label.pack()
 weight_entry.pack()
-height_label.pack()
-height_entry.pack()
+ht_label.pack()
+ht_entry.pack()
 calculate_button.pack()
 result_label.pack()
 root.mainloop()
